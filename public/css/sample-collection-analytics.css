@@ -1,0 +1,799 @@
+.page-sample-analytics {
+    background: #f5f7fb;
+}
+
+.analytics-page {
+    --analytics-blue: #1769f6;
+    --analytics-navy: #0b2f6b;
+    --analytics-green: #10a66a;
+    --analytics-orange: #d99000;
+    --analytics-red: #e14855;
+    --analytics-purple: #7157d9;
+    --analytics-text: #13213c;
+    --analytics-muted: #66758f;
+    --analytics-border: #e1e7f0;
+    --analytics-card: #ffffff;
+    display: grid;
+    gap: 16px;
+}
+
+.analytics-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.analytics-header-meta {
+    min-width: 132px;
+    padding-top: 4px;
+    text-align: right;
+    color: var(--analytics-muted);
+}
+
+.analytics-header-meta span,
+.analytics-header-meta strong {
+    display: block;
+}
+
+.analytics-header-meta span {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.analytics-header-meta strong {
+    margin-top: 4px;
+    color: var(--analytics-navy);
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.analytics-filter-card,
+.analytics-card,
+.analytics-kpi {
+    border: 1px solid var(--analytics-border);
+    border-radius: 18px;
+    background: var(--analytics-card);
+    box-shadow: 0 8px 22px rgba(16, 39, 76, .045);
+}
+
+.analytics-filter-card {
+    padding: 17px 18px;
+}
+
+.analytics-section-heading,
+.analytics-card-header,
+.analytics-time-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.analytics-section-heading {
+    justify-content: flex-start;
+    margin-bottom: 14px;
+}
+
+.analytics-section-heading h2,
+.analytics-card-header h2 {
+    margin: 0;
+    color: var(--analytics-text);
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -.015em;
+}
+
+.analytics-section-heading p,
+.analytics-card-header p {
+    margin: 3px 0 0;
+    color: var(--analytics-muted);
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.analytics-heading-icon,
+.analytics-time-icon {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 11px;
+    color: var(--analytics-blue);
+    background: #edf4ff;
+}
+
+.analytics-heading-icon svg,
+.analytics-filter-note svg,
+.analytics-filter-actions svg,
+.analytics-kpi-icon svg,
+.analytics-time-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.analytics-filter-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, .9fr) minmax(220px, .9fr) minmax(320px, 1.35fr) auto;
+    gap: 12px;
+    align-items: end;
+}
+
+.analytics-filter-group {
+    min-width: 0;
+}
+
+.analytics-filter-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #263c5c;
+    font-size: 9px;
+    font-weight: 900;
+}
+
+.analytics-input-shell,
+.analytics-number-shell {
+    position: relative;
+}
+
+
+.analytics-input-shell input,
+.analytics-number-shell input {
+    width: 100%;
+    min-height: 42px;
+    border: 1px solid #cfdaea;
+    border-radius: 10px;
+    color: #17345d;
+    background: #fff;
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    outline: none;
+    transition: border-color .16s ease, box-shadow .16s ease;
+}
+
+.analytics-input-shell input {
+    padding: 0 12px;
+    color-scheme: light;
+}
+
+.analytics-number-shell input {
+    padding: 0 52px 0 12px;
+}
+
+.analytics-number-shell span {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #78879c;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.analytics-input-shell input:focus,
+.analytics-number-shell input:focus {
+    border-color: #92baf6;
+    box-shadow: 0 0 0 3px rgba(23, 105, 246, .11);
+}
+
+.analytics-filter-note {
+    min-height: 42px;
+    padding: 8px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px dashed #ced9e8;
+    border-radius: 10px;
+    color: #6c7b91;
+    background: #f9fbfe;
+    font-size: 9px;
+    line-height: 1.35;
+}
+
+.analytics-filter-note svg {
+    width: 16px;
+    height: 16px;
+    flex: 0 0 auto;
+    color: #5f81b1;
+}
+
+.analytics-filter-actions {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.analytics-filter-actions .btn {
+    min-height: 42px;
+    padding-inline: 14px !important;
+}
+
+.analytics-filter-actions svg {
+    width: 15px;
+    height: 15px;
+}
+
+.analytics-alert {
+    padding: 11px 14px;
+    border-radius: 11px;
+    font-size: 10px;
+    font-weight: 750;
+    line-height: 1.45;
+}
+
+.analytics-alert-error {
+    color: #a02c36;
+    background: #fff0f1;
+    border: 1px solid #ffd0d4;
+}
+
+.analytics-alert-warning {
+    color: #7b5a13;
+    background: #fff9e8;
+    border: 1px solid #f5dfa0;
+}
+
+
+.analytics-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.analytics-kpi {
+    position: relative;
+    min-height: 108px;
+    padding: 16px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: center;
+    gap: 12px;
+    overflow: hidden;
+}
+
+.analytics-kpi::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: currentColor;
+}
+
+.analytics-kpi-icon {
+    position: relative;
+    width: 42px;
+    height: 42px;
+    display: block;
+    border-radius: 13px;
+    color: currentColor;
+    background: color-mix(in srgb, currentColor 9%, white);
+}
+
+.analytics-kpi-icon svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    display: block;
+    margin: 0;
+    transform: translate(-50%, -50%);
+}
+
+.analytics-kpi small,
+.analytics-kpi strong,
+.analytics-kpi span {
+    display: block;
+}
+
+.analytics-kpi small {
+    color: #55657e;
+    font-size: 9px;
+    font-weight: 850;
+}
+
+.analytics-kpi strong {
+    margin-top: 2px;
+    color: #102b55;
+    font-size: clamp(19px, 1.6vw, 27px);
+    line-height: 1;
+    font-weight: 950;
+    letter-spacing: -.035em;
+}
+
+.analytics-kpi span {
+    margin-top: 5px;
+    color: #7b899e;
+    font-size: 8.5px;
+    line-height: 1.35;
+}
+
+.analytics-kpi-blue { color: var(--analytics-blue); }
+.analytics-kpi-green { color: var(--analytics-green); }
+.analytics-kpi-purple { color: var(--analytics-purple); }
+.analytics-kpi-orange { color: var(--analytics-orange); }
+.analytics-kpi-red { color: var(--analytics-red); }
+
+.analytics-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.analytics-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.analytics-grid-wide-left {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, .8fr);
+}
+
+.analytics-card {
+    min-width: 0;
+    padding: 16px;
+}
+
+.analytics-card-header {
+    align-items: flex-start;
+    margin-bottom: 8px;
+}
+
+.analytics-eyebrow {
+    display: block;
+    margin-bottom: 2px;
+    color: #6d7f98;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .065em;
+    text-transform: uppercase;
+}
+
+.analytics-card-pill {
+    padding: 5px 8px;
+    border-radius: 999px;
+    color: #37618f;
+    background: #eef5ff;
+    border: 1px solid #d9e8fb;
+    font-size: 8px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.analytics-chart {
+    min-height: 290px;
+}
+
+.analytics-chart-donut {
+    min-height: 280px;
+}
+
+.analytics-chart-wide {
+    min-height: 320px;
+}
+
+.analytics-chart-medium {
+    min-height: 300px;
+}
+
+.analytics-states-chart {
+    min-height: 220px;
+    height: 220px;
+}
+
+.analytics-state-value {
+    display: inline-block;
+    margin-right: 8px;
+    color: #17355d;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.analytics-state-percent {
+    display: inline-block;
+    color: #7a899d;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.analytics-time-card {
+    padding-bottom: 14px;
+}
+
+.analytics-time-header {
+    margin-bottom: 11px;
+}
+
+.analytics-time-icon {
+    width: 34px;
+    height: 34px;
+    color: var(--analytics-purple);
+    background: #f0ecff;
+}
+
+.analytics-time-icon-green {
+    color: var(--analytics-green);
+    background: #e9f9f2;
+}
+
+.analytics-stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid #edf1f6;
+}
+
+.analytics-stat-row > div {
+    min-width: 0;
+    padding: 12px 14px 4px;
+    border-right: 1px solid #edf1f6;
+}
+
+.analytics-stat-row > div:last-child {
+    border-right: 0;
+}
+
+.analytics-stat-row small,
+.analytics-stat-row strong {
+    display: block;
+}
+
+.analytics-stat-row small {
+    color: #78879c;
+    font-size: 8px;
+    font-weight: 800;
+}
+
+.analytics-stat-row strong {
+    margin-top: 3px;
+    color: #17355d;
+    font-size: 15px;
+    font-weight: 950;
+}
+
+.analytics-compliance-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(290px, .55fr);
+    gap: 18px;
+}
+
+.analytics-compliance-chart {
+    min-height: 310px;
+}
+
+.analytics-compliance-note {
+    padding: 16px;
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    border: 1px solid #d7e4f5;
+    border-radius: 14px;
+    color: #50637e;
+    background: #f7faff;
+}
+
+.analytics-note-icon {
+    width: 26px;
+    height: 26px;
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #1769f6;
+    background: #e7f1ff;
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.analytics-compliance-note strong {
+    color: #17365f;
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.analytics-compliance-note p {
+    margin: 5px 0 12px;
+    font-size: 9px;
+    line-height: 1.55;
+}
+
+.analytics-compliance-note dl {
+    margin: 0;
+    display: grid;
+    gap: 7px;
+}
+
+.analytics-compliance-note dl > div {
+    padding-top: 7px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-top: 1px solid #e0e9f5;
+}
+
+.analytics-compliance-note dt,
+.analytics-compliance-note dd {
+    margin: 0;
+    font-size: 9px;
+}
+
+.analytics-compliance-note dt {
+    color: #6f8097;
+}
+
+.analytics-compliance-note dd {
+    color: #153764;
+    font-weight: 900;
+}
+
+@media (max-width: 1380px) {
+    .analytics-filter-grid {
+        grid-template-columns: repeat(4, minmax(140px, 1fr));
+    }
+
+    .analytics-filter-note {
+        grid-column: span 2;
+    }
+
+    .analytics-kpi-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 980px) {
+    .analytics-page-header {
+        flex-direction: column;
+    }
+
+    .analytics-header-meta {
+        text-align: left;
+    }
+
+    .analytics-filter-grid,
+    .analytics-grid-2,
+    .analytics-grid-wide-left,
+    .analytics-compliance-card {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-filter-note {
+        grid-column: auto;
+    }
+
+    .analytics-kpi-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 640px) {
+    .analytics-kpi-grid,
+    .analytics-stat-row {
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-stat-row > div {
+        border-right: 0;
+        border-bottom: 1px solid #edf1f6;
+    }
+
+    .analytics-stat-row > div:last-child {
+        border-bottom: 0;
+    }
+
+    .analytics-filter-actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+/* --------------------------------------------------------------------------
+ | Atenciones por flebotomista - lista de progreso
+ | -------------------------------------------------------------------------- */
+.analytics-phlebotomist-card {
+    padding-bottom: 18px;
+}
+
+.analytics-phlebotomist-list {
+    display: grid;
+    gap: 17px;
+    padding: 8px 4px 2px;
+}
+
+.analytics-phlebotomist-row {
+    min-width: 0;
+}
+
+.analytics-phlebotomist-info {
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.analytics-phlebotomist-identity {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.analytics-phlebotomist-user-icon {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d8e6f8;
+    border-radius: 9px;
+    color: #1769f6;
+    background: #edf4ff;
+}
+
+.analytics-phlebotomist-user-icon svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.analytics-phlebotomist-name {
+    overflow: hidden;
+    color: #18365f;
+    font-size: 10.5px;
+    font-weight: 850;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.analytics-phlebotomist-value {
+    flex: 0 0 auto;
+    color: #40536e;
+    font-size: 10px;
+    font-weight: 850;
+    white-space: nowrap;
+}
+
+.analytics-progress {
+    width: 100%;
+    height: 8px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e9edf3;
+}
+
+.analytics-progress-bar {
+    height: 100%;
+    min-width: 0;
+    border-radius: inherit;
+    transition: width .35s ease;
+}
+
+.analytics-progress-blue { background: #5f6ee8; }
+.analytics-progress-purple { background: #8a73d6; }
+.analytics-progress-cyan { background: #18bdd7; }
+.analytics-progress-green { background: #29bd78; }
+.analytics-progress-red { background: #ec3f68; }
+.analytics-progress-orange { background: #ff6b4a; }
+.analytics-progress-navy { background: #304a76; }
+.analytics-progress-slate { background: #8799b6; }
+
+.analytics-phlebotomist-note {
+    margin-top: 2px;
+    padding-top: 10px;
+    border-top: 1px solid #edf1f6;
+    color: #7b899d;
+    font-size: 8.5px;
+    line-height: 1.4;
+}
+
+.analytics-phlebotomist-empty {
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7d8da4;
+    font-size: 10px;
+}
+
+@media (max-width: 720px) {
+    .analytics-phlebotomist-info {
+        align-items: flex-start;
+    }
+
+    .analytics-phlebotomist-name {
+        white-space: normal;
+    }
+
+    .analytics-phlebotomist-value {
+        font-size: 9px;
+    }
+}
+
+/* Ajustes visuales: estados en columnas y edad en línea */
+#analyticsStatesChart { min-height: 300px; }
+#analyticsAgeChart { min-height: 310px; }
+
+
+/* Promedio de edad: indicador compacto dentro de la cabecera de la gráfica. */
+.analytics-age-header {
+    align-items: center;
+}
+
+.analytics-age-average {
+    min-width: 170px;
+    padding: 10px 13px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #d8e6f8;
+    border-radius: 13px;
+    background: #f5f9ff;
+}
+
+.analytics-age-average-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #1769f6;
+    background: #e7f1ff;
+}
+
+.analytics-age-average-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.analytics-age-average small,
+.analytics-age-average strong {
+    display: block;
+}
+
+.analytics-age-average small {
+    color: #6d7f98;
+    font-size: 8px;
+    font-weight: 850;
+}
+
+.analytics-age-average strong {
+    margin-top: 2px;
+    color: #102b55;
+    font-size: 15px;
+    font-weight: 950;
+    line-height: 1.1;
+}
+
+@media (max-width: 760px) {
+    .analytics-age-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .analytics-age-average {
+        min-width: 0;
+        width: 100%;
+    }
+}
