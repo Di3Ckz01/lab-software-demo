@@ -14,8 +14,8 @@ return [
     */
 
     'manual' => [
-        'path' => 'manuales/manual-usuario-vcare.pdf',
-        'label' => 'Manual de usuario V-Care',
+        'path' => 'manuales/manual-demo.pdf',
+        'label' => 'Ayuda de LAB DEMO',
     ],
 
     'routes' => [
@@ -71,16 +71,16 @@ return [
             'title' => 'Toma de muestra',
             'page' => 7,
             'page_end' => 11,
-            'manual_path' => 'manuales/manual-usuario-vcare-actualizado.pdf',
-            'manual_label' => 'Manual actualizado de V-Care',
+            'manual_path' => 'manuales/manual-demo.pdf',
+            'manual_label' => 'Ayuda de LAB DEMO',
         ],
 
         'dashboards.supplier-studies' => [
             'title' => 'Auditoría de exámenes por proveedores',
             'page' => 12,
             'page_end' => 17,
-            'manual_path' => 'manuales/manual-usuario-vcare-actualizado.pdf',
-            'manual_label' => 'Manual actualizado de V-Care',
+            'manual_path' => 'manuales/manual-demo.pdf',
+            'manual_label' => 'Ayuda de LAB DEMO',
         ],
 
         'users.index' => [

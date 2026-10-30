@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Demostración local - V-Care</title>
+    <title>Demostración local - LAB DEMO</title>
     <style>
         body {
             margin: 0;
@@ -45,7 +45,7 @@
 </head>
 <body>
     <main>
-        <h1>V-Care · Demostración</h1>
+        <h1>LAB DEMO · Demostración</h1>
         <p>
             Acceso local con usuario ficticio.
             No utiliza credenciales ni datos clínicos reales.

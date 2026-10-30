@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>V-Care | Estados de la orden por área</title>
+    <title>LAB DEMO | Estados de la orden por área</title>
 
     <style>
         :root {
@@ -591,7 +591,7 @@
     </section>
 
     <footer class="tv-footer">
-        <span>© 2026 V-Care Healthcare IT Solutions</span>
+        <span>LAB DEMO · Datos ficticios</span>
 
         <div class="abbreviation-legend" aria-label="Leyenda de abreviaturas">
             <span class="legend-heading">Abreviaturas:</span>

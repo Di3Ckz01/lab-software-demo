@@ -4,9 +4,11 @@
     $helpEntry = $helpRoutes[$helpRouteName] ?? null;
     $manualConfig = config('context_help.manual', []);
 
-    $manualPath = $helpEntry['manual_path'] ?? ($manualConfig['path'] ?? 'manuales/manual-usuario-vcare.pdf');
-    $manualLabel = $helpEntry['manual_label'] ?? ($manualConfig['label'] ?? 'Manual de usuario V-Care');
+    $manualPath = $helpEntry['manual_path'] ?? ($manualConfig['path'] ?? 'manuales/manual-demo.pdf');
+    $manualLabel = $helpEntry['manual_label'] ?? ($manualConfig['label'] ?? 'Ayuda de LAB DEMO');
     $manualBaseUrl = asset($manualPath);
+    // La edición pública no incluye manuales institucionales.
+    $manualAvailable = is_file(public_path($manualPath));
 
     $helpTitle = $helpEntry['title'] ?? 'Ayuda de esta pantalla';
     $helpPage = max(1, (int) ($helpEntry['page'] ?? 1));
@@ -33,12 +35,13 @@
                     <span>{{ $manualLabel }}</span>
                 </div>
                 <h2 id="contextHelpTitle">{{ $helpTitle }}</h2>
-                <p>{{ $helpPageLabel }} del manual oficial. Se abre automáticamente en la sección correspondiente.</p>
+                <p>{{ $manualAvailable ? $helpPageLabel . ' de la guía disponible.' : 'La guía institucional no está incluida en esta demostración.' }}</p>
             </div>
             <button type="button" class="context-help-close" data-context-help-close aria-label="Cerrar ayuda">×</button>
         </header>
 
         <div class="context-help-body">
+            @if ($manualAvailable)
             <div class="context-help-pdf-shell">
                 <div class="context-help-pdf-fallback">
                     Si el visor PDF de tu navegador no se muestra, utiliza “Abrir esta sección” en la parte inferior.
@@ -50,16 +53,25 @@
                     loading="lazy"
                 ></iframe>
             </div>
+            @else
+            <div role="status" style="padding:24px;background:#fff;border:1px solid #d8e4f2;border-radius:14px;line-height:1.7;color:#526981;">
+                Esta es una versión de portafolio con datos ficticios. El manual institucional fue excluido de esta edición.
+            </div>
+            @endif
         </div>
 
         <footer class="context-help-footer">
             <div class="context-help-footer-actions">
+                @if ($manualAvailable)
                 <a class="context-help-link" href="{{ $manualSectionUrl }}" target="_blank" rel="noopener">
                     Abrir esta sección
                 </a>
                 <a class="context-help-link" href="{{ $manualBaseUrl }}" target="_blank" rel="noopener">
                     Manual completo
                 </a>
+                @else
+                <span style="font-size:11px;color:#687b96;">Guía no incluida en el portafolio</span>
+                @endif
             </div>
             <button type="button" class="context-help-understood" data-context-help-close>Entendido</button>
         </footer>

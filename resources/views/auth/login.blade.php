@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#eef6ff">
-    <title>Iniciar sesión | V-Care</title>
+    <title>Iniciar sesión | LAB DEMO</title>
 
     <style>
         :root {

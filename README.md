@@ -1,128 +1,98 @@
 # LAB DEMO
 
-Plataforma de demostración para el monitoreo operativo de un laboratorio clínico.
+Plataforma de demostración para monitorear la operación de un laboratorio clínico con **datos totalmente ficticios**. Incluye seguimiento de órdenes y estudios, productividad, toma de muestra, analítica y tableros para pantallas operativas.
 
-Este proyecto presenta tableros interactivos, indicadores de productividad,
-seguimiento de órdenes y visualización de procesos de toma de muestra.
+> **Demostración exclusivamente local:** no está diseñada para exponerse en Internet ni para manejar información clínica real.
 
-## Características
+## Funcionalidades
 
-- Dashboard principal de operación.
-- Seguimiento de órdenes y estudios.
-- Consulta externa.
-- Indicadores de productividad.
-- Monitoreo de toma de muestra.
-- Analítica de tiempos de atención.
-- Pantallas operativas para TV.
-- Reportes y visualizaciones.
+- Dashboard de inicio con módulos e indicadores.
+- Tableros de órdenes, estudios, consulta externa y productividad.
+- Toma de muestra: tiempos de espera, atención y desempeño por puerta.
+- Analítica de citas, pacientes y tiempos operativos.
+- Pantallas de seguimiento para TV.
+- Reportes de trazabilidad en PDF.
+- Sesión demo sin credenciales clínicas y operaciones administrativas de escritura bloqueadas.
 
 ## Tecnologías
 
-- PHP y Laravel.
-- JavaScript.
-- HTML y CSS.
-- Vite.
-- Composer y NPM.
-
-## Modo demostración
-
-La demostración utiliza información ficticia.
-
-El acceso demo está restringido a ejecución local mediante localhost
-y requiere una configuración explícita.
-
-Las operaciones administrativas de escritura están bloqueadas
-durante las sesiones de demostración.
-
-Esta versión no está preparada para exponerse como servicio público.
-
-## Requisitos
-
-- PHP compatible con las dependencias del proyecto.
-- Composer.
-- Node.js y NPM.
-- Extensiones PHP requeridas por Laravel.
-
-## Instalación local
-
-1. Clonar o descargar el repositorio.
-2. Instalar dependencias PHP:
-
-   composer install
-
-3. Instalar y compilar el frontend:
-
-   npm ci
-   npm run build
-
-4. Crear el archivo de configuración local:
-
-   copy .env.example .env
-
-5. Generar una clave nueva:
-
-   php artisan key:generate
-
-6. Iniciar el servidor:
-
-   php artisan serve --host=127.0.0.1 --port=8001
-
-Abrir en el navegador:
-
-http://127.0.0.1:8001/demo
-
-El modo demostración requiere APP_ENV=local,
-VCARE_DEMO_ENABLED=true y GO_API_BASE_URL vacío.
-
-No deben utilizarse credenciales ni datos clínicos reales.
-
-## Pruebas
-
-Para ejecutar las pruebas de seguridad:
-
-php artisan test --filter=DemoSecurityTest
-
-La validación local realizada durante la preparación del
-portafolio obtuvo 12 pruebas aprobadas y 19 aserciones.
-
-Estas pruebas no sustituyen una auditoría de seguridad integral.
+PHP 8.2+ · Laravel 12 · JavaScript · HTML/CSS · Vite 6 · Composer · Node.js/npm · DOMPDF
 
 ## Capturas
 
-Todas las imágenes corresponden al modo demostración
-y utilizan información ficticia.
+Las capturas muestran exclusivamente información de ejemplo.
 
 ### Dashboard principal
 
-Vista general del laboratorio, indicadores operativos
-y navegación entre módulos.
-
 ![Dashboard principal](docs/capturas/02-dashboard.png)
 
-### Tableros operativos
+### Operación y analítica
 
-| Toma de muestra | Analítica de toma de muestra |
+| Toma de muestra | Analítica |
 |---|---|
 | ![Toma de muestra](docs/capturas/04-toma-muestra.png) | ![Analítica](docs/capturas/06-analitica.png) |
 
-| Pantalla operativa de TV | Tablero de estudios |
+| Pantalla para TV | Estudios |
 |---|---|
-| ![Pantalla de TV](docs/capturas/05-pantalla-tv.png) | ![Estudios](docs/capturas/03-estudios.png) |
+| ![Pantalla TV](docs/capturas/05-pantalla-tv.png) | ![Estudios](docs/capturas/03-estudios.png) |
 
-### Inicio de sesión
-
-Interfaz de acceso y entrada a la demostración local.
+### Acceso
 
 ![Inicio de sesión](docs/capturas/01-login.png)
 
-## Consideraciones
+## Instalación local
 
-- Proyecto de demostración local.
-- Información de ejemplo ficticia.
-- Sin integración con un backend clínico real durante el demo.
-- Recursos institucionales excluidos de la copia de portafolio.
+Requisitos: **PHP 8.2 o superior**, Composer, Node.js y npm, con las extensiones de PHP requeridas por Laravel.
 
-## Autoría y licencia
+```bash
+git clone https://github.com/Di3Ckz01/lab-software-demo.git
+cd lab-software-demo
+composer install
+npm ci
+npm run build
+```
 
-Pendiente de confirmar los permisos de publicación,
-las atribuciones correspondientes y la licencia del proyecto.
+Durante `composer install` se crean automáticamente las carpetas de `storage/` y `bootstrap/cache/` que Laravel necesita.
+
+Crea tu archivo local de configuración **sin subirlo a Git**:
+
+```powershell
+# Windows PowerShell
+Copy-Item .env.example .env
+php artisan key:generate
+php artisan serve --host=127.0.0.1 --port=8001
+```
+
+En macOS/Linux puedes usar `cp .env.example .env` en lugar de `Copy-Item`.
+
+Abre **http://127.0.0.1:8001/demo** y elige «Entrar a la demostración». Para navegar desde el login, usa su botón «Entrar a la demostración».
+
+Configuración indispensable en `.env`:
+
+```dotenv
+APP_ENV=local
+APP_DEBUG=false
+APP_URL=http://127.0.0.1:8001
+GO_API_BASE_URL=
+GO_API_USE_MOCK=true
+VCARE_DEMO_ENABLED=true
+```
+
+**No agregues credenciales reales, tokens ni datos de pacientes.** El acceso demo verifica el entorno local, la dirección loopback y que la URL del backend esté vacía; las operaciones de escritura protegidas responden 403.
+
+## Pruebas
+
+```bash
+php artisan test --filter=DemoSecurityTest
+```
+
+En la validación local previa se aprobaron **12 pruebas y 19 aserciones**. Este resultado no equivale a una auditoría de seguridad integral ni significa que la suite se ejecute automáticamente en GitHub.
+
+## Avisos y licencias
+
+- **Código específico de esta aplicación:** no se ha otorgado una licencia abierta de reutilización. Se mantienen reservados los derechos de sus titulares; la autorización para distribuirlo públicamente y cualquier atribución correspondiente deben verificarse por separado. El campo `license: proprietary` de Composer **no** sustituye esa autorización.
+- **Laravel y otras dependencias:** conservan sus propias licencias, independientes de la aplicación.
+- **Tipografía Poppins:** se incluye bajo **SIL Open Font License 1.1**; consulta el texto íntegro y aviso de derechos en [public/fonts/poppins/OFL.txt](public/fonts/poppins/OFL.txt), procedente de [Google Fonts](https://github.com/google/fonts/blob/main/ofl/poppins/OFL.txt).
+- **Manuales y logotipos institucionales:** no se distribuyen en esta edición. La ayuda indica cuándo no está disponible el PDF.
+
+Este repositorio **no es un servicio desplegado** ni ofrece una demo pública accesible por Internet.
